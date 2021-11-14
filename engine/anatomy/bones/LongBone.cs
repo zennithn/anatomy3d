@@ -90,6 +90,8 @@ namespace FreedomOfFormFoundation.AnatomyEngine.Anatomy.Bones
 		/// properties and domain of this height map.
 		/// </summary>
 		public ContinuousMap<dvec2, double> Radius { get; set; }
+
+		//public MutableLinearSpline1D Radius {get; set;}
 		
 		/// <summary>
 		/// The central curve along the length of the shaft of the long bone around which the <c>Capsule</c> is

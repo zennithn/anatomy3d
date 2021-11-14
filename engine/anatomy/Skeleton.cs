@@ -2,6 +2,7 @@ using System.Collections.Generic;
 
 namespace FreedomOfFormFoundation.AnatomyEngine.Anatomy
 {
+	//Suggestion: deprecate this separate class
 	public class Skeleton
 	{
 		public List<Joint> joints;
