@@ -32,30 +32,30 @@ namespace FreedomOfFormFoundation.AnatomyRenderer
 		{
 			// Generate a simple cubic spline that will act as the radius of a long bone:
 			SortedList<double, double> radiusPoints = new SortedList<double, double>();
-			radiusPoints.Add(-3.5f, 0.7f*1.2f);
-			radiusPoints.Add(-1.0f, 0.7f*1.2f);
-			radiusPoints.Add(0.02f, 0.7f*1.2f);
-			radiusPoints.Add(0.15f, 0.7f*1.0f);
-			radiusPoints.Add(0.5f, 0.7f*0.7f);
-			radiusPoints.Add(0.8f, 0.7f*0.76f);
-			radiusPoints.Add(0.98f, 0.7f*0.8f);
-			radiusPoints.Add(4.5f, 0.7f*0.8f);
+			radiusPoints.Add(-3.5d, 0.7f*1.2d);
+			radiusPoints.Add(-1.0d, 0.7f*1.2d);
+			radiusPoints.Add(0.02d, 0.7f*1.2d);
+			radiusPoints.Add(0.15d, 0.7f*1.0d);
+			radiusPoints.Add(0.5d, 0.7f*0.7d);
+			radiusPoints.Add(0.8d, 0.7f*0.76d);
+			radiusPoints.Add(0.98d, 0.7f*0.8d);
+			radiusPoints.Add(4.5d, 0.7f*0.8d);
 			
 			LinearSpline1D boneRadius = new LinearSpline1D(radiusPoints);
 
 			// Define the center curve of the long bone:
 			SortedList<double, dvec3> centerPoints = new SortedList<double, dvec3>();
-			centerPoints.Add(0.0f, new dvec3(0.0f, 0.0f, 2.7f));
-			centerPoints.Add(0.25f, new dvec3(-0.3f, -0.5f, 1.0f));
-			centerPoints.Add(0.5f, new dvec3(0.3f, 1.0f, 0.0f));
-			centerPoints.Add(0.75f, new dvec3(0.8f, 1.0f, -1.0f));
-			centerPoints.Add(1.0f, new dvec3(0.6f, -0.5f, -0.9f));
+			centerPoints.Add(0.0d, new dvec3(0.0d, 0.0d, 2.7d));
+			centerPoints.Add(0.25d, new dvec3(-0.3d, -0.5d, 1.0d));
+			centerPoints.Add(0.5d, new dvec3(0.3d, 1.0d, 0.0d));
+			centerPoints.Add(0.75d, new dvec3(0.8d, 1.0d, -1.0d));
+			centerPoints.Add(1.0d, new dvec3(0.6d, -0.5d, -0.9d));
 			
 			SpatialCubicSpline boneCenter = new SpatialCubicSpline(centerPoints);
 			
 			// Add first bone:
-			LineSegment centerLine = new LineSegment(new dvec3(0.0f, 0.0f, 0.5f),
-									   new dvec3(0.001f, 10.0f, 0.51f));
+			LineSegment centerLine = new LineSegment(new dvec3(0.0d, 0.0d, 0.5d),
+									   new dvec3(0.001d, 10.0d, 0.51d));
 			
 			var bone1 = new Anatomy.Bones.LongBone(centerLine, boneRadius);
 			
@@ -64,11 +64,11 @@ namespace FreedomOfFormFoundation.AnatomyRenderer
 			skeleton.bones.Add(bone1);
 			
 			// Add second bone:
-			//LineSegment centerLine2 = new LineSegment(new dvec3(0.0f, -10.0f, 0.5f),
-			//						   new dvec3(0.001f, -1.0f, 0.51f));
+			//LineSegment centerLine2 = new LineSegment(new dvec3(0.0d, -10.0d, 0.5d),
+			//						   new dvec3(0.001d, -1.0d, 0.51d));
 			
-			//var bone2 = new Anatomy.Bones.LongBone(centerLine2, 1.1f);
-			//bone2.InteractingJoints.Add((skeleton.joints[0], RayCastDirection.Outwards, 3.0f));
+			//var bone2 = new Anatomy.Bones.LongBone(centerLine2, 1.1d);
+			//bone2.InteractingJoints.Add((skeleton.joints[0], RayCastDirection.Outwards, 3.0d));
 			//skeleton.bones.Add(bone2);
 			
 			// Generate the geometry vertices of the first bone with resolution U=128 and resolution V=128:
@@ -94,23 +94,23 @@ namespace FreedomOfFormFoundation.AnatomyRenderer
 			// Generate a simple cubic spline that will act as the radius of a long bone:
 			SortedList<double, double> splinePoints = new SortedList<double, double>();
 			double radiusModifier = 0.6f;
-			splinePoints.Add(-0.1f, radiusModifier*1.1f);
-			splinePoints.Add(0.0f, radiusModifier*1.1f);
-			splinePoints.Add(0.15f, radiusModifier*0.95f);
-			splinePoints.Add(0.3f, radiusModifier*0.9f);
-			splinePoints.Add(0.5f, radiusModifier*1.15f);
-			splinePoints.Add(0.7f, radiusModifier*0.95f);
-			splinePoints.Add(0.8f, radiusModifier*0.95f);
-			splinePoints.Add(1.0f, radiusModifier*1.1f);
+			splinePoints.Add(-0.1d, radiusModifier*1.1d);
+			splinePoints.Add(0.0d, radiusModifier*1.1d);
+			splinePoints.Add(0.15d, radiusModifier*0.95d);
+			splinePoints.Add(0.3d, radiusModifier*0.9d);
+			splinePoints.Add(0.5d, radiusModifier*1.15d);
+			splinePoints.Add(0.7d, radiusModifier*0.95d);
+			splinePoints.Add(0.8d, radiusModifier*0.95d);
+			splinePoints.Add(1.0d, radiusModifier*1.1d);
 			
 			QuadraticSpline1D jointSpline = new QuadraticSpline1D(splinePoints);
 
 			// Define the center curve of the long bone:
-			LineSegment centerLine = new LineSegment(new dvec3(0.0f, -0.5f, 0.0f),
-									   new dvec3(0.0f, 1.5f, 0.5f));
+			LineSegment centerLine = new LineSegment(new dvec3(0.0d, -0.5d, 0.0d),
+									   new dvec3(0.0d, 1.5d, 0.5d));
 			
 			// Add a long bone to the character:
-			skeleton.joints.Add(new Anatomy.Joints.HingeJoint(centerLine, jointSpline, 0.0f, 1.0f*(double)Math.PI));
+			skeleton.joints.Add(new Anatomy.Joints.HingeJoint(centerLine, jointSpline, 0.0d, 1.0f*(double)Math.PI));
 			
 			// Generate the geometry vertices of the first bone with resolution U=32 and resolution V=32:
 			UVMesh mesh = skeleton.joints[0].GetArticularSurface().GenerateMesh(64, 64);
